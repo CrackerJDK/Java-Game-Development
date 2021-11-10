@@ -7,6 +7,7 @@ public class GameFrame extends JFrame{
 
     public static final int SCREEN_WIDTH = 1000;
     public static final int SCREEN_HEIGHT = 600;
+    private GamePanel gamePanel;
 
     public GameFrame(){
         /**
@@ -21,11 +22,22 @@ public class GameFrame extends JFrame{
          * SET CLOSE BUTTON TO STOP PROGRAM
          */
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gamePanel = new GamePanel();
+        add(gamePanel);
+
+
+    }
+
+    public void startGame(){
+        gamePanel.startGame();
+//        gamePanel.getThread().start();
     }
 
     public static void main(String[] args) {
         GameFrame gameFrame = new GameFrame();
         gameFrame.setVisible(true);
+        gameFrame.startGame();
+
     }
 
 
